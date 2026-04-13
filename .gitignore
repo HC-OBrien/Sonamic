@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# PyInstaller build output — run build.bat to regenerate these
+build/
+dist/
+
+# JRE — downloaded automatically by build.bat (~300 MB, not for GitHub)
+jre/
+jre.zip
+
+# IDE settings
+.idea/
+.vscode/
+*.iml
+
+# OS junk
+.DS_Store
+Thumbs.db
