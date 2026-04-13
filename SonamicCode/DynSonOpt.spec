@@ -94,8 +94,8 @@ hidden_imports = [
 # ── analysis ─────────────────────────────────────────────────────────────────
 
 a = Analysis(
-    [str(ROOT / "Sonamic.py")],
-    pathex=[str(ROOT)],
+    [str(ROOT / "SonamicCode" / "Sonamic.py")],
+    pathex=[str(ROOT / "SonamicCode")],
     binaries=binaries,
     datas=datas,
     hiddenimports=hidden_imports,
@@ -103,7 +103,7 @@ a = Analysis(
         str(VENV / "jpype" / "_pyinstaller"),
     ],
     runtime_hooks=[
-        str(ROOT / "hook_runtime_jre.py"),
+        str(ROOT / "SonamicCode" / "hook_runtime_jre.py"),
     ],
     excludes=["tkinter", "test", "unittest"],
     noarchive=False,

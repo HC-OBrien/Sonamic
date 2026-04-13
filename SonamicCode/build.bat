@@ -14,8 +14,11 @@ echo.
 ::  We bundle Eclipse Temurin 21 LTS (JRE, not full JDK — much smaller).
 ::  The Adoptium API URL always resolves to the latest GA release.
 
-set "JRE_DIR=%ROOT%\jre"
-set "JRE_ZIP=%ROOT%\jre.zip"
+:: venv, jre and dist all live one level up (project root, not SonamicCode\)
+set "PROJECT=%ROOT%\.."
+
+set "JRE_DIR=%PROJECT%\jre"
+set "JRE_ZIP=%PROJECT%\jre.zip"
 set "JRE_URL=https://api.adoptium.net/v3/binary/latest/21/ga/windows/x64/jre/hotspot/normal/eclipse"
 
 if exist "%JRE_DIR%\bin\java.exe" (
@@ -43,7 +46,7 @@ if exist "%JRE_DIR%\bin\java.exe" (
 
     echo  [JRE] Extracting jre.zip ...
     powershell -NoProfile -Command ^
-        "Expand-Archive -Path '%JRE_ZIP%' -DestinationPath '%ROOT%\_jre_tmp' -Force"
+        "Expand-Archive -Path '%JRE_ZIP%' -DestinationPath '%PROJECT%\_jre_tmp' -Force"
     if errorlevel 1 (
         echo.
         echo  ERROR: Extraction failed.
@@ -53,10 +56,10 @@ if exist "%JRE_DIR%\bin\java.exe" (
 
     :: The zip contains a single top-level folder (e.g. jdk-21.0.x+y-jre)
     :: Rename it to just "jre" so the spec and runtime hook can find it
-    for /d %%D in ("%ROOT%\_jre_tmp\*") do (
+    for /d %%D in ("%PROJECT%\_jre_tmp\*") do (
         move "%%D" "%JRE_DIR%" >nul
     )
-    rmdir "%ROOT%\_jre_tmp" 2>nul
+    rmdir "%PROJECT%\_jre_tmp" 2>nul
 
     echo  [JRE] Extracted to jre\
     echo.
@@ -67,7 +70,7 @@ if exist "%JRE_DIR%\bin\java.exe" (
 echo  [BUILD] Running PyInstaller ...
 echo.
 
-"%ROOT%\.venv\Scripts\pyinstaller.exe" "%ROOT%\DynSonOpt.spec" --clean
+"%PROJECT%\.venv\Scripts\pyinstaller.exe" "%ROOT%\DynSonOpt.spec" --clean
 
 if errorlevel 1 (
     echo.
@@ -79,7 +82,7 @@ if errorlevel 1 (
 echo.
 echo  ============================================================
 echo   Build complete!
-echo   Output:  %ROOT%\dist\DynSonOpt\DynSonOpt.exe
+echo   Output:  %PROJECT%\dist\DynSonOpt\DynSonOpt.exe
 echo.
 echo   The app is fully self-contained -- no Java install needed
 echo   on any machine you copy the dist\DynSonOpt\ folder to.

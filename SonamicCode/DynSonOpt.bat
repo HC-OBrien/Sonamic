@@ -14,7 +14,8 @@ if errorlevel 1 (
 )
 
 :: ── activate the virtual environment ────────────────────────────────────────
-call "%ROOT%\.venv\Scripts\activate.bat"
+:: venv lives one level up at the project root
+call "%ROOT%\..\.venv\Scripts\activate.bat"
 
 :: ── launch the app ──────────────────────────────────────────────────────────
 python "%ROOT%\Sonamic.py"
