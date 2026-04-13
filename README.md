@@ -4,6 +4,8 @@ A real-time visualisation and sonification tool for dynamic optimisation algorit
 
 Pick a problem, pick an algorithm, pick a sonification pathway — watch and listen as the optimiser chases a moving target.
 
+**[Download the latest release (Windows)](https://github.com/HC-OBrien/Sonamic/releases/latest)** — extract the zip and run `DynSonOpt.exe`, no installs needed.
+
 ---
 
 ## What it does
@@ -32,13 +34,18 @@ You can also record a session — it exports an MP3 of the audio and a PNG analy
 
 ### Option A — standalone executable (no Python needed)
 
-1. Clone or download this repository
-2. Run `build.bat`
-   - It will download a JRE automatically (~55 MB, one-time)
-   - Then builds `dist\DynSonOpt\DynSonOpt.exe`
-3. Share or run the `dist\DynSonOpt\` folder — no installs needed on the target machine
+1. Download `Sonamic_v1.1_Windows.zip` from the [Releases page](https://github.com/HC-OBrien/Sonamic/releases/latest)
+2. Extract the zip anywhere
+3. Run `DynSonOpt.exe` — everything is bundled, nothing to install
 
-### Option B — run from source
+### Option B — build it yourself (Windows)
+
+1. Clone this repository
+2. Open `SonamicCode\` and run `build.bat`
+   - Downloads a JRE automatically (~55 MB, one-time)
+   - Produces `dist\DynSonOpt\DynSonOpt.exe` in the project root
+
+### Option C — run from source
 
 Requires Python 3.11+ and Java (any JDK/JRE 11+) on your PATH.
 
@@ -47,7 +54,7 @@ pip install py5 numpy scipy sounddevice soundfile matplotlib
 python Sonamic.py
 ```
 
-Or use the included `DynSonOpt.bat` if you have a virtual environment set up at `.venv\`.
+Or use `SonamicCode\DynSonOpt.bat` if you have a virtual environment set up at `.venv\` in the project root.
 
 ---
 
