@@ -4,7 +4,7 @@ A real-time visualisation and sonification tool for dynamic optimisation algorit
 
 Pick a problem, pick an algorithm, pick a sonification pathway — watch and listen as the optimiser chases a moving target.
 
-**[Download the latest release (Windows)](https://github.com/HC-OBrien/Sonamic/releases/latest)** — extract the zip and run `DynSonOpt.exe`, no installs needed.
+**[Download the latest release (Windows)](https://github.com/HC-OBrien/Sonamic/releases/latest)** — extract the zip and run `DynSonOpt.exe`.
 
 ---
 
