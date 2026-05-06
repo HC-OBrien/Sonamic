@@ -28,36 +28,6 @@ Dynamic optimisation problems have a moving optimum — the goal shifts over tim
 
 You can also record a session — it exports an MP3 of the audio and a PNG analysis plot together.
 
----
-
-## Running it
-
-### Option A — standalone executable (no Python needed)
-
-1. Download `Sonamic_v1.1_Windows.zip` from the [Releases page](https://github.com/HC-OBrien/Sonamic/releases/latest)
-2. Extract the zip anywhere
-3. Run `DynSonOpt.exe` — everything is bundled, nothing to install
-
-### Option B — build it yourself (Windows)
-
-1. Clone this repository
-2. Open `SonamicCode\` and run `build.bat`
-   - Downloads a JRE automatically (~55 MB, one-time)
-   - Produces `dist\DynSonOpt\DynSonOpt.exe` in the project root
-
-### Option C — run from source
-
-Requires Python 3.11+ and Java (any JDK/JRE 11+) on your PATH.
-
-```bash
-pip install py5 numpy scipy sounddevice soundfile matplotlib
-python Sonamic.py
-```
-
-Or use `SonamicCode\DynSonOpt.bat` if you have a virtual environment set up at `.venv\` in the project root.
-
----
-
 ## Controls
 
 | Control | Action |
@@ -97,4 +67,4 @@ Or use `SonamicCode\DynSonOpt.bat` if you have a virtual environment set up at `
 - [soundfile](https://pysoundfile.readthedocs.io/)
 - [matplotlib](https://matplotlib.org/)
 
-The standalone build bundles everything including the JRE — `build.bat` handles it all.
+The standalone build bundles everything including the JRE — `build.bat`.
